@@ -1,0 +1,31 @@
+
+<h1>Appointments</h1>
+
+<div id="appointments">
+  <% @appointments.each_with_index do |appointment, index| %>
+    <p>
+
+  <div class="container mt-2">
+  <table id="table1" class="table table-light table-bordered rounded-table">
+    <thead class="thead-dark">
+      <tr>
+       <th scope="col">Serial Number</th>
+        <th scope="col">Appointment Date</th>
+        <th scope="col">Property Type</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+         <td><%= index + 1 %></td>
+          <td><%= appointment.booking_date %></td>
+          <td><%= appointment.property.property_type %></td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+      <%= link_to "Show this appointment", appointment %>
+    </p>
+  <% end %>
+</div>
+

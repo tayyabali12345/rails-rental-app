@@ -1,0 +1,37 @@
+<div class="container mt-5">
+<h1>Signed Contract</h1>
+</div>
+<div class="container mt-3">
+<table class="table table-light table-bordered rounded-table ">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Renter Name/Email</th>
+      <th scope="col">Propert Type</th>
+      <th scope="col">Property Rent</th>
+      <th scope="col">Effective Date</th>
+      <th scope="col">Contract status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @leases.each_with_index do |lease, index| %>
+      <tr>
+        <td><%= index+1 %> </td>
+        <td><%= lease.user.email %></td>
+        <td><%= lease.property.property_type %></td>
+        <td><%= lease.property.amount %></td>
+        <td><%= lease.start_date %></td>
+        <td>
+         <% if lease.end_date.nil? %>
+
+          <%= button_to "Active", lease_path(lease), method: :patch , title: "Click here to the change status"%>
+
+         <%else%>
+          <%= lease.end_date %>
+         <%end%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

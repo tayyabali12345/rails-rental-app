@@ -1,0 +1,4 @@
+FetchProjectsWorker:
+  cron: 0 0,18 * * * Asia/Karachi
+  class: FetchProjectsWorker
+  queue: default

@@ -1,0 +1,66 @@
+<p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
+
+<%= link_to "Show All Appointments", appointments_path %> <br>
+
+<%= link_to "All Signed Contract", leases_path %> <br>
+<% if policy(@properties).index?  %>
+
+ <%= link_to "Make Contract", new_lease_path %> <br>
+<% end %>
+
+<%= link_to "New property", new_property_path %><br>
+
+
+<h1>Properties</h1>
+
+<div id="properties">
+
+  <div class="container mt-2">
+  <table id="table1" class="table table-light table-bordered rounded-table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Serial Number</th>
+        <th scope="col">Rent Amount</th>
+        <th scope="col">Property Type</th>
+        <th scope="col">Actions</th>
+        <th scope="col">Display</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <% @properties.each_with_index do |property, index| %>
+        <tr>
+         <td><%=index+1 %></td>
+          <td><%= property.amount %></td>
+          <td><%= property.property_type %></td>
+          <td>
+          <% if Appointment.find_by(user_id: current_user, property_id: property.id) == nil%>
+              <%= form_tag url_for(controller: 'appointments', action: 'create'), method: 'post' do |f| %>
+                        <input type="number" value=<%=property.id%> name="property_id" id="property_id" hidden/>
+                        <input type="submit" value="Book Appointment">
+              <% end %>
+          <%else%>
+               <h5><%="Appointment Booked"%></h5>
+
+          <%end%>
+          </td>
+          <td>
+          <%= link_to "Show this property", property %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+</div>
+
+
+
+
+
+
+
+

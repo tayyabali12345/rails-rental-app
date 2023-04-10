@@ -1,0 +1,46 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container mt-5">
+  <p><strong>Title: </strong><%= "Signed Contract" %></p>
+</div>
+
+<div>
+  <%= link_to "Back to leases", leases_path %>
+
+  <%= button_to "Destroy this lease", @lease, method: :delete %>
+
+  <div class="container mt-2">
+  <table id="table1" class="table table-light table-bordered rounded-table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Renter Name</th>
+        <th scope="col">Property Type</th>
+        <th scope="col">Start Date</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><%= @lease_user.name %></td>
+          <td><%= @lease_property.property_type%></td>
+          <td><%= @lease.start_date%></td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
