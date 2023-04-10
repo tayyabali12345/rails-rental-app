@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<div>
+  <%= link_to "Back to properties", properties_path %>
+  <div class="container mt-2">
+  <table id="table1" class="table table-light table-bordered rounded-table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Appointment Date</th>
+        <th scope="col">Property ID</th>
+        <th scope="col">User ID</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><%= @appointment.booking_date %></td>
+          <td><%= @appointment.property_id%></td>
+          <td><%= @appointment.user_id%></td>
+
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+  <%= button_to "Destroy this appointment", @appointment, method: :delete %>
+</div>

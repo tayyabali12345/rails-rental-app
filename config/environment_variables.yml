@@ -1,0 +1,8 @@
+development:
+  HRMS_BASE_URL: "http://localhost:3000/api/v2"
+  HRMS_TOKEN: "I4wVgW9cFxBH7vCUCjgkLA"
+  COMPANY: "devsinc"
+  AUDITAPP_UID: "rrJFoVr1lKcU0lISU0ur6OQCQj7ObLCVzBspgpTDR10"
+  AUDITAPP_SECRET: "u_6j7_dA5HGvZ5pJowzutaRDdkcpq6PrpR47_bpdg-g"
+  AUDITAPP_SCOPE: "read_users write_users read_leaves write_leaves read_holidays write_holidays"
+  MAPLE_TOKEN_URL: 'http://localhost:3000/oauth/token'

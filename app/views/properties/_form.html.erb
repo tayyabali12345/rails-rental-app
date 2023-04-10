@@ -1,0 +1,38 @@
+<%= form_with(model: property) do |f| %>
+  <% if property.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+        <% property.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+   <div class="field">
+    <%= f.label :property_type %><br />
+    <%= f.radio_button :property_type, 'bedroom' %> 1 bedroom<br /> <%= f.radio_button :property_type, 'bedrooms' %> 2 bedrooms<br />  <%= f.radio_button :property_type, 'duplex_type_appartments' %> duplex_type_appartments<br />
+  </div>
+  <div class="field">
+    <%= f.label :Rent_Amount %><br />
+    <%= f.number_field :amount %>
+  </div>
+
+   <div class="fieldl">
+          <%= f.label :Images %><br />
+          <%= f.file_field :images, multiple: true, accept: '.gif, .png, .jpg, .jpeg' %>
+
+          <% if property.images.attached? %>
+            <% property.images.map do |image| %>
+              <%= cl_image_tag image.key, :width=>150, :crop=>"fill"%>
+            <% end %>
+          <% end %>
+    </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

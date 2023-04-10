@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<div>
+  <%= link_to "Edit this property", edit_property_path(@property) %> |
+  <%= link_to "Back to properties", properties_path %>
+
+
+  <div class="container mt-2">
+  <table id="table1" class="table table-light table-bordered rounded-table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Rent Amount</th>
+        <th scope="col">Property Type</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><%= @property.amount %></td>
+          <td><%= @property.property_type %></td>
+
+        </tr>
+        <% if @property.images.attached? %>
+        <h4>Few Glimps of Property Images</h4>
+          <% @property.images.map do |image| %>
+                  <%= cl_image_tag image.key, height: '510rem', width: '510rem'%>
+          <% end %>
+        <% end %>
+    </tbody>
+  </table>
+
+</div>
+  <%= button_to "Destroy this property", @property, method: :delete %>
+</div>
